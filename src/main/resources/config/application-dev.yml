@@ -7,8 +7,8 @@ spring:
     
     datasource:
         dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-        url: jdbc:mysql://localhost:3306/jhipster
-        databaseName: jhipster
+        url: jdbc:mysql://localhost:3306/ludecol
+        databaseName: ludecol
         serverName: 
         username: root
         password: 

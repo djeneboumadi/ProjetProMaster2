@@ -9,12 +9,12 @@
         <relativePath />
     </parent>
 
-    <groupId>com.mycompany.myapp</groupId>
-    <artifactId>jhipster</artifactId>
+    <groupId>fr.istic.ludecol</groupId>
+    <artifactId>ludecol</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>jhipster</name>
+    <name>ludecol</name>
 
     <prerequisites>
         <maven>3.0.0</maven>
