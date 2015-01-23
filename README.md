@@ -1,1 +1,2 @@
-# ProjetProMaster2
+README for ludecol
+==========================
