@@ -14,6 +14,22 @@
         <link rel="stylesheet" href="assets/styles/bootstrap.css">
         <link rel="stylesheet" href="assets/styles/main.css">
         <!-- endbuild -->
+        <style>
+/* Note styles */
+span.note, span.set-label, span.wrap {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+span.note { display: block; position: absolute; top: -2px; left: 0; z-index: 10; background: url(/notes-bg.png) no-repeat 0 0; width: 25px; height: 25px; font-size: 12px; font-weight: bold; line-height: 25px; letter-spacing: -1px; text-align: center; color: #fff; text-decoration: none; text-shadow: 0 1px 1px rgba(0,0,0,.15); }
+span.note.black { background-position: -150px 0; }
+span.set-label { display: block; width: 69px; height: 34px; background: url(http://verifyapp.com/images/setup-label.png) no-repeat; position: absolute; }
+span.wrap { padding: 10px; }
+
+#js-annotation-page > .row {
+  margin-bottom: 1em;
+}
+</style>
     </head>
     <body ng-app="jhipsterApp">
         <!--[if lt IE 10]>
@@ -43,6 +59,7 @@
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="jquery.annotate.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
