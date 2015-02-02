@@ -39,7 +39,7 @@ public class MyServlet1 extends HttpServlet implements javax.servlet.Servlet {
 	      BufferedImage bigImg = ImageIO.read(file);
 	   // The above line throws an checked IOException which must be caught.
  
-	      BufferedImage small = bigImg.getSubimage(0, 0,200, 900);
+	      BufferedImage small = bigImg.getSubimage(0, 0,200, 200);
 	      
 	      // Copy the contents of the file to the output stream
 	       ByteArrayOutputStream baos = new ByteArrayOutputStream();
