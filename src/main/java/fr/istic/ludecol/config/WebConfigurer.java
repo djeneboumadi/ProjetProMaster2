@@ -3,9 +3,12 @@ package fr.istic.ludecol.config;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
+
 import fr.istic.ludecol.web.filter.CachingHttpHeadersFilter;
 import fr.istic.ludecol.web.filter.StaticResourcesProductionFilter;
 import fr.istic.ludecol.web.filter.gzip.GZipServletFilter;
+import fr.istic.ludecol.web.rest.MyServlet1;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,7 @@ import org.springframework.core.env.Environment;
 
 import javax.inject.Inject;
 import javax.servlet.*;
+
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -43,6 +47,8 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
     public void onStartup(ServletContext servletContext) throws ServletException {
         log.info("Web application configuration, using profiles: {}", Arrays.toString(env.getActiveProfiles()));
         EnumSet<DispatcherType> disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC);
+        servletContext.addServlet("foo", MyServlet1.class);
+        servletContext.getServletRegistration("foo").addMapping("/im/toto.png");
         if (!env.acceptsProfiles(Constants.SPRING_PROFILE_FAST)) {
             initMetrics(servletContext, disps);
         }
