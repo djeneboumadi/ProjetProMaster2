@@ -10,8 +10,9 @@
             <img src="/assets/images/hipster.png" annotorious/>
           
 
-        <button type="button" id="serialize">Serialize data</button>
-
+        <button type="button" onclick="getAnnotations(this)">Serialize</button>
+        <br/>
+		<textarea style="margin: 0px; width: 621px; height: 96px;" ng-bind="message"></textarea> 
             <div ng-switch="isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true"
                      translate="main.logged.message" translate-values="{username: '{{account.login}}'}">

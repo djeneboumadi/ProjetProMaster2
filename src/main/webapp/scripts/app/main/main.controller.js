@@ -18,3 +18,16 @@ angular.module('ludecolApp')
     	}
   	};
 });
+
+  
+function getAnnotations(el) {
+	var $scope = angular.element(el).scope();
+      var all = anno.getAnnotations();
+	  var message = "";
+	  all.forEach(function(entry) {
+	  	var etu = entry.shapes[0].geometry;
+	    message += "text : " + entry.text + "	|	posx :" + etu.x + "	|	posy :" +  etu.y + "	|	height : " + etu.height + "	|	width : " + etu.width + " \r ";
+	  });
+	  $scope.message = message;
+	  $scope.$apply();
+  	 }
