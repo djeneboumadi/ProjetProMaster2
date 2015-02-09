@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="ludecolApp.tag.detail.title">Tag</span> {{tag.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.id_tag">Id_tag</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.id_tag}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.pos_x">Pos_x</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.pos_x}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.pos_y">Pos_y</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.pos_y}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.species">species</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.species.id_species}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.user">user</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.user.id}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.tag.picture">picture</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{tag.picture.id_picture}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="tag"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
