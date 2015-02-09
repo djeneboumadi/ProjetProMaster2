@@ -1,0 +1,25 @@
+{
+    "ludecolApp": {
+        "species" : {
+            "home": {
+                "title": "Speciess",
+                "createLabel": "Créer un nouveau Species",
+                "createOrEditLabel": "Créer ou éditer un Species"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Species {{ id }} ?"
+            },
+            "detail": {
+                "title": "Species"
+            },
+            "id_species": "Id_species",
+            "name": "Name",
+            "category": "Category",
+            "description": "Description",
+            "picture_spe": "Picture_spe",
+            "is_in_encyclo": "Is_in_encyclo",
+            "tag": "tag"
+        }
+    }
+}
+
