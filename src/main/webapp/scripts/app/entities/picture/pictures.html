@@ -1,0 +1,143 @@
+<div>
+
+    <h2 translate="ludecolApp.picture.home.title">Picture</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#savePictureModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="ludecolApp.picture.home.createLabel">Create a new Picture</span>
+    </button>
+    <div class="modal fade" id="savePictureModal" tabindex="-1" role="dialog" aria-labelledby="myPictureLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myPictureLabel" translate="ludecolApp.picture.home.createOrEditLabel">Create or edit a Picture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="picture.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.id_picture">Id_picture</label>
+                            <input type="number" class="form-control"
+                                   ng-model="picture.id_picture">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.url_picture">Url_picture</label>
+                            <input type="text" class="form-control"
+                                   ng-model="picture.url_picture">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.height">Height</label>
+                            <input type="number" class="form-control"
+                                   ng-model="picture.height">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.width">Width</label>
+                            <input type="number" class="form-control"
+                                   ng-model="picture.width">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.pos_matrix">Pos_matrix</label>
+                            <input type="text" class="form-control"
+                                   ng-model="picture.pos_matrix">
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="ludecolApp.picture.picture">picture</label>
+                            <select class="form-control" ng-model="picture.picture.id" ng-options="picture.id as picture.id_picture for picture in pictures">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deletePictureConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(picture.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="ludecolApp.picture.delete.question" translate-values="{id: '{{picture.id}}'}">Are you sure you want to delete Picture {{picture.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="ludecolApp.picture.id_picture">Id_picture</th>
+                    <th translate="ludecolApp.picture.url_picture">Url_picture</th>
+                    <th translate="ludecolApp.picture.height">Height</th>
+                    <th translate="ludecolApp.picture.width">Width</th>
+                    <th translate="ludecolApp.picture.pos_matrix">Pos_matrix</th>
+                    <th translate="ludecolApp.picture.picture">picture</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="picture in pictures">
+                    <td><a ui-sref="pictureDetails({id:picture.id})">{{picture.id}}</a></td>
+                    <td>{{picture.id_picture}}</td>
+                    <td>{{picture.url_picture}}</td>
+                    <td>{{picture.height}}</td>
+                    <td>{{picture.width}}</td>
+                    <td>{{picture.pos_matrix}}</td>
+                    <td>{{picture.picture.id_picture}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="pictureDetail({id:picture.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(picture.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(picture.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

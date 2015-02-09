@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="ludecolApp.picture.detail.title">Picture</span> {{picture.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.id_picture">Id_picture</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.id_picture}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.url_picture">Url_picture</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.url_picture}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.height">Height</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.height}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.width">Width</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.width}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.pos_matrix">Pos_matrix</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.pos_matrix}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.picture.picture">picture</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{picture.picture.id_picture}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="picture"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
