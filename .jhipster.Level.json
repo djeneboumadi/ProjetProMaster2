@@ -1,0 +1,41 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "otherEntityName": "picture",
+            "relationshipType": "many-to-one",
+            "otherEntityNameCapitalized": "Picture",
+            "otherEntityField": "id_picture"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "id_level",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Id_level",
+            "fieldNameUnderscored": "id_level"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "question",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Question",
+            "fieldNameUnderscored": "question"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "species_list",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Species_list",
+            "fieldNameUnderscored": "species_list"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150209173707"
+}
