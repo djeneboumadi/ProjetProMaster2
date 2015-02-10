@@ -6,6 +6,7 @@
             "home": "Accueil",
             "entities": {
                 "main": "Entités",
+                "levels": "Levels",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

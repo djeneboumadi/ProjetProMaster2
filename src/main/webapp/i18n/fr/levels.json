@@ -1,0 +1,21 @@
+{
+    "ludecolApp": {
+        "levels" : {
+            "home": {
+                "title": "Levelss",
+                "createLabel": "Créer un nouveau Levels",
+                "createOrEditLabel": "Créer ou éditer un Levels"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Levels {{ id }} ?"
+            },
+            "detail": {
+                "title": "Levels"
+            },
+            "id_level": "Id_level",
+            "question": "Question",
+            "species_list": "Species_list"
+        }
+    }
+}
+

@@ -1,0 +1,122 @@
+<div>
+
+    <h2 translate="ludecolApp.levels.home.title">Levels</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveLevelsModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="ludecolApp.levels.home.createLabel">Create a new Levels</span>
+    </button>
+    <div class="modal fade" id="saveLevelsModal" tabindex="-1" role="dialog" aria-labelledby="myLevelsLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myLevelsLabel" translate="ludecolApp.levels.home.createOrEditLabel">Create or edit a Levels</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="levels.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="ludecolApp.levels.id_level">Id_level</label>
+                            <input type="number" class="form-control"
+                                   ng-model="levels.id_level">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.levels.question">Question</label>
+                            <input type="text" class="form-control"
+                                   ng-model="levels.question">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.levels.species_list">Species_list</label>
+                            <input type="text" class="form-control"
+                                   ng-model="levels.species_list">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteLevelsConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(levels.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="ludecolApp.levels.delete.question" translate-values="{id: '{{levels.id}}'}">Are you sure you want to delete Levels {{levels.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="ludecolApp.levels.id_level">Id_level</th>
+                    <th translate="ludecolApp.levels.question">Question</th>
+                    <th translate="ludecolApp.levels.species_list">Species_list</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="levels in levelss">
+                    <td><a ui-sref="levelsDetails({id:levels.id})">{{levels.id}}</a></td>
+                    <td>{{levels.id_level}}</td>
+                    <td>{{levels.question}}</td>
+                    <td>{{levels.species_list}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="levelsDetail({id:levels.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(levels.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(levels.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
