@@ -1,0 +1,17 @@
+{
+    "ludecolApp": {
+        "userSpecies" : {
+            "home": {
+                "title": "UserSpeciess",
+                "createLabel": "Create a new UserSpecies",
+                "createOrEditLabel": "Create or edit a UserSpecies"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserSpecies {{ id }}?"
+            },
+            "detail": {
+                "title": "UserSpecies"
+            }
+        }
+    }
+}
