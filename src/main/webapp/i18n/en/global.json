@@ -8,6 +8,7 @@
                 "main": "Entities",
                 "levels": "Levels",
                 "pictures": "Pictures",
+                "tags": "Tags",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

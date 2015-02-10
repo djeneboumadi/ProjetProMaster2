@@ -1,0 +1,33 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "id_tag",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Id_tag",
+            "fieldNameUnderscored": "id_tag"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "pos_x",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "Pos_x",
+            "fieldNameUnderscored": "pos_x"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "pos_y",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "Pos_y",
+            "fieldNameUnderscored": "pos_y"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150210161242"
+}
