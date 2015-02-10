@@ -6,10 +6,6 @@
             "home": "Home",
             "entities": {
                 "main": "Entities",
-                "species": "Species",
-                "tag": "Tag",
-                "picture": "Picture",
-                "level": "Level",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {
