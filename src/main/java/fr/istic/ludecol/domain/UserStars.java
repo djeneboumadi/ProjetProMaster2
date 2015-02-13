@@ -1,10 +1,17 @@
 package fr.istic.ludecol.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * A UserStars.
@@ -18,11 +25,14 @@ public class UserStars implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "level_played")
-    private Boolean level_played;
-
     @Column(name = "nb_stars")
     private Integer nb_stars;
+    
+    @ManyToOne
+    private User user;
+    
+    @ManyToOne
+    private Levels level;
 
     public Long getId() {
         return id;
@@ -30,14 +40,6 @@ public class UserStars implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Boolean getLevel_played() {
-        return level_played;
-    }
-
-    public void setLevel_played(Boolean level_played) {
-        this.level_played = level_played;
     }
 
     public Integer getNb_stars() {
@@ -48,7 +50,23 @@ public class UserStars implements Serializable {
         this.nb_stars = nb_stars;
     }
 
-    @Override
+    public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Levels getLevel() {
+		return level;
+	}
+
+	public void setLevel(Levels level) {
+		this.level = level;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -73,7 +91,6 @@ public class UserStars implements Serializable {
     public String toString() {
         return "UserStars{" +
                 "id=" + id +
-                ", level_played='" + level_played + "'" +
                 ", nb_stars='" + nb_stars + "'" +
                 '}';
     }

@@ -70,7 +70,6 @@ public class SpeciesResourceTest {
     @Before
     public void initTest() {
         species = new Species();
-        species.setId_species(DEFAULT_ID_SPECIES);
         species.setName(DEFAULT_NAME);
         species.setCategory(DEFAULT_CATEGORY);
         species.setDescription(DEFAULT_DESCRIPTION);
@@ -94,7 +93,6 @@ public class SpeciesResourceTest {
         List<Species> speciess = speciesRepository.findAll();
         assertThat(speciess).hasSize(1);
         Species testSpecies = speciess.iterator().next();
-        assertThat(testSpecies.getId_species()).isEqualTo(DEFAULT_ID_SPECIES);
         assertThat(testSpecies.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testSpecies.getCategory()).isEqualTo(DEFAULT_CATEGORY);
         assertThat(testSpecies.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
@@ -155,7 +153,6 @@ public class SpeciesResourceTest {
         speciesRepository.saveAndFlush(species);
 
         // Update the species
-        species.setId_species(UPDATED_ID_SPECIES);
         species.setName(UPDATED_NAME);
         species.setCategory(UPDATED_CATEGORY);
         species.setDescription(UPDATED_DESCRIPTION);
@@ -170,7 +167,6 @@ public class SpeciesResourceTest {
         List<Species> speciess = speciesRepository.findAll();
         assertThat(speciess).hasSize(1);
         Species testSpecies = speciess.iterator().next();
-        assertThat(testSpecies.getId_species()).isEqualTo(UPDATED_ID_SPECIES);
         assertThat(testSpecies.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testSpecies.getCategory()).isEqualTo(UPDATED_CATEGORY);
         assertThat(testSpecies.getDescription()).isEqualTo(UPDATED_DESCRIPTION);

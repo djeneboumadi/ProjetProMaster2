@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+
 import java.io.Serializable;
 
 /**
@@ -18,14 +19,20 @@ public class Tags implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "id_tag")
-    private Integer id_tag;
-
     @Column(name = "pos_x")
     private Long pos_x;
 
     @Column(name = "pos_y")
     private Long pos_y;
+    
+    @ManyToOne
+    private Pictures picture ;
+    
+    @ManyToOne
+    private User user ;
+    
+    @ManyToOne
+    private Species species ;
 
     public Long getId() {
         return id;
@@ -33,14 +40,6 @@ public class Tags implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getId_tag() {
-        return id_tag;
-    }
-
-    public void setId_tag(Integer id_tag) {
-        this.id_tag = id_tag;
     }
 
     public Long getPos_x() {
@@ -59,7 +58,31 @@ public class Tags implements Serializable {
         this.pos_y = pos_y;
     }
 
-    @Override
+    public Pictures getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Pictures picture) {
+		this.picture = picture;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Species getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(Species species) {
+		this.species = species;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -84,7 +107,6 @@ public class Tags implements Serializable {
     public String toString() {
         return "Tags{" +
                 "id=" + id +
-                ", id_tag='" + id_tag + "'" +
                 ", pos_x='" + pos_x + "'" +
                 ", pos_y='" + pos_y + "'" +
                 '}';

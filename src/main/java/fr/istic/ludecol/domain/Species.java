@@ -18,9 +18,6 @@ public class Species implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "id_species")
-    private Integer id_species;
-
     @Column(name = "name")
     private String name;
 
@@ -42,14 +39,6 @@ public class Species implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getId_species() {
-        return id_species;
-    }
-
-    public void setId_species(Integer id_species) {
-        this.id_species = id_species;
     }
 
     public String getName() {
@@ -117,7 +106,6 @@ public class Species implements Serializable {
     public String toString() {
         return "Species{" +
                 "id=" + id +
-                ", id_species='" + id_species + "'" +
                 ", name='" + name + "'" +
                 ", category='" + category + "'" +
                 ", description='" + description + "'" +

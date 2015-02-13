@@ -62,7 +62,6 @@ public class UserStarsResourceTest {
     @Before
     public void initTest() {
         userStars = new UserStars();
-        userStars.setLevel_played(DEFAULT_LEVEL_PLAYED);
         userStars.setNb_stars(DEFAULT_NB_STARS);
     }
 
@@ -82,7 +81,6 @@ public class UserStarsResourceTest {
         List<UserStars> userStarss = userStarsRepository.findAll();
         assertThat(userStarss).hasSize(1);
         UserStars testUserStars = userStarss.iterator().next();
-        assertThat(testUserStars.getLevel_played()).isEqualTo(DEFAULT_LEVEL_PLAYED);
         assertThat(testUserStars.getNb_stars()).isEqualTo(DEFAULT_NB_STARS);
     }
 
@@ -131,7 +129,6 @@ public class UserStarsResourceTest {
         userStarsRepository.saveAndFlush(userStars);
 
         // Update the userStars
-        userStars.setLevel_played(UPDATED_LEVEL_PLAYED);
         userStars.setNb_stars(UPDATED_NB_STARS);
         restUserStarsMockMvc.perform(post("/api/userStarss")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -142,7 +139,6 @@ public class UserStarsResourceTest {
         List<UserStars> userStarss = userStarsRepository.findAll();
         assertThat(userStarss).hasSize(1);
         UserStars testUserStars = userStarss.iterator().next();
-        assertThat(testUserStars.getLevel_played()).isEqualTo(UPDATED_LEVEL_PLAYED);
         assertThat(testUserStars.getNb_stars()).isEqualTo(UPDATED_NB_STARS);
     }
 

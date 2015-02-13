@@ -63,7 +63,6 @@ public class LevelsResourceTest {
     @Before
     public void initTest() {
         levels = new Levels();
-        levels.setId_level(DEFAULT_ID_LEVEL);
         levels.setQuestion(DEFAULT_QUESTION);
         levels.setSpecies_list(DEFAULT_SPECIES_LIST);
     }
@@ -84,7 +83,6 @@ public class LevelsResourceTest {
         List<Levels> levelss = levelsRepository.findAll();
         assertThat(levelss).hasSize(1);
         Levels testLevels = levelss.iterator().next();
-        assertThat(testLevels.getId_level()).isEqualTo(DEFAULT_ID_LEVEL);
         assertThat(testLevels.getQuestion()).isEqualTo(DEFAULT_QUESTION);
         assertThat(testLevels.getSpecies_list()).isEqualTo(DEFAULT_SPECIES_LIST);
     }
@@ -136,7 +134,6 @@ public class LevelsResourceTest {
         levelsRepository.saveAndFlush(levels);
 
         // Update the levels
-        levels.setId_level(UPDATED_ID_LEVEL);
         levels.setQuestion(UPDATED_QUESTION);
         levels.setSpecies_list(UPDATED_SPECIES_LIST);
         restLevelsMockMvc.perform(post("/api/levelss")
@@ -148,7 +145,6 @@ public class LevelsResourceTest {
         List<Levels> levelss = levelsRepository.findAll();
         assertThat(levelss).hasSize(1);
         Levels testLevels = levelss.iterator().next();
-        assertThat(testLevels.getId_level()).isEqualTo(UPDATED_ID_LEVEL);
         assertThat(testLevels.getQuestion()).isEqualTo(UPDATED_QUESTION);
         assertThat(testLevels.getSpecies_list()).isEqualTo(UPDATED_SPECIES_LIST);
     }

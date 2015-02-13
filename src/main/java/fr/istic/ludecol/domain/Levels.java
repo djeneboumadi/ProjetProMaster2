@@ -18,14 +18,17 @@ public class Levels implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "id_level")
-    private Integer id_level;
-
     @Column(name = "question")
     private String question;
+    
+    @Column(name = "difficulty")
+    private int difficulty;
 
     @Column(name = "species_list")
     private String species_list;
+    
+    @ManyToOne
+    private Pictures picture;
 
     public Long getId() {
         return id;
@@ -33,14 +36,6 @@ public class Levels implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getId_level() {
-        return id_level;
-    }
-
-    public void setId_level(Integer id_level) {
-        this.id_level = id_level;
     }
 
     public String getQuestion() {
@@ -51,7 +46,15 @@ public class Levels implements Serializable {
         this.question = question;
     }
 
-    public String getSpecies_list() {
+    public int getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public String getSpecies_list() {
         return species_list;
     }
 
@@ -59,7 +62,15 @@ public class Levels implements Serializable {
         this.species_list = species_list;
     }
 
-    @Override
+    public Pictures getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Pictures picture) {
+		this.picture = picture;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -84,7 +95,7 @@ public class Levels implements Serializable {
     public String toString() {
         return "Levels{" +
                 "id=" + id +
-                ", id_level='" + id_level + "'" +
+                ", difficulty='" + difficulty + "'" +
                 ", question='" + question + "'" +
                 ", species_list='" + species_list + "'" +
                 '}';

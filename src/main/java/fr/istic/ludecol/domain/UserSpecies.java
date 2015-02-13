@@ -1,10 +1,16 @@
 package fr.istic.ludecol.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * A UserSpecies.
@@ -17,6 +23,12 @@ public class UserSpecies implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @ManyToOne
+    private User user;
+    
+    @ManyToOne
+    private Species species;
 
     public Long getId() {
         return id;
@@ -26,7 +38,23 @@ public class UserSpecies implements Serializable {
         this.id = id;
     }
 
-    @Override
+    public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Species getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(Species species) {
+		this.species = species;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

@@ -65,7 +65,6 @@ public class TagsResourceTest {
     @Before
     public void initTest() {
         tags = new Tags();
-        tags.setId_tag(DEFAULT_ID_TAG);
         tags.setPos_x(DEFAULT_POS_X);
         tags.setPos_y(DEFAULT_POS_Y);
     }
@@ -86,7 +85,6 @@ public class TagsResourceTest {
         List<Tags> tagss = tagsRepository.findAll();
         assertThat(tagss).hasSize(1);
         Tags testTags = tagss.iterator().next();
-        assertThat(testTags.getId_tag()).isEqualTo(DEFAULT_ID_TAG);
         assertThat(testTags.getPos_x()).isEqualTo(DEFAULT_POS_X);
         assertThat(testTags.getPos_y()).isEqualTo(DEFAULT_POS_Y);
     }
@@ -138,7 +136,6 @@ public class TagsResourceTest {
         tagsRepository.saveAndFlush(tags);
 
         // Update the tags
-        tags.setId_tag(UPDATED_ID_TAG);
         tags.setPos_x(UPDATED_POS_X);
         tags.setPos_y(UPDATED_POS_Y);
         restTagsMockMvc.perform(post("/api/tagss")
@@ -150,7 +147,6 @@ public class TagsResourceTest {
         List<Tags> tagss = tagsRepository.findAll();
         assertThat(tagss).hasSize(1);
         Tags testTags = tagss.iterator().next();
-        assertThat(testTags.getId_tag()).isEqualTo(UPDATED_ID_TAG);
         assertThat(testTags.getPos_x()).isEqualTo(UPDATED_POS_X);
         assertThat(testTags.getPos_y()).isEqualTo(UPDATED_POS_Y);
     }

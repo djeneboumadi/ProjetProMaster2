@@ -1,10 +1,19 @@
 package fr.istic.ludecol.domain;
 
+import java.io.Serializable;
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * A Pictures.
@@ -18,9 +27,6 @@ public class Pictures implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "id_picture")
-    private Integer id_picture;
-
     @Column(name = "url_picture")
     private String url_picture;
 
@@ -32,6 +38,15 @@ public class Pictures implements Serializable {
 
     @Column(name = "matrix_position")
     private String matrix_position;
+    
+    @OneToMany(mappedBy="picture")
+    private Collection<Levels> levels ;
+    
+    @OneToMany(mappedBy="picture")
+    private Collection<Tags> Tags ;
+    
+    @ManyToOne
+    private Pictures mother_picture ;
 
     public Long getId() {
         return id;
@@ -39,14 +54,6 @@ public class Pictures implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getId_picture() {
-        return id_picture;
-    }
-
-    public void setId_picture(Integer id_picture) {
-        this.id_picture = id_picture;
     }
 
     public String getUrl_picture() {
@@ -81,7 +88,31 @@ public class Pictures implements Serializable {
         this.matrix_position = matrix_position;
     }
 
-    @Override
+    public Collection<Levels> getLevels() {
+		return levels;
+	}
+
+	public void setLevels(Collection<Levels> levels) {
+		this.levels = levels;
+	}
+
+	public Collection<Tags> getTags() {
+		return Tags;
+	}
+
+	public void setTags(Collection<Tags> tags) {
+		Tags = tags;
+	}
+
+	public Pictures getMother_picture() {
+		return mother_picture;
+	}
+
+	public void setMother_picture(Pictures mother_picture) {
+		this.mother_picture = mother_picture;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -106,7 +137,6 @@ public class Pictures implements Serializable {
     public String toString() {
         return "Pictures{" +
                 "id=" + id +
-                ", id_picture='" + id_picture + "'" +
                 ", url_picture='" + url_picture + "'" +
                 ", height='" + height + "'" +
                 ", width='" + width + "'" +

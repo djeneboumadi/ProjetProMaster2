@@ -69,7 +69,6 @@ public class PicturesResourceTest {
     @Before
     public void initTest() {
         pictures = new Pictures();
-        pictures.setId_picture(DEFAULT_ID_PICTURE);
         pictures.setUrl_picture(DEFAULT_URL_PICTURE);
         pictures.setHeight(DEFAULT_HEIGHT);
         pictures.setWidth(DEFAULT_WIDTH);
@@ -92,7 +91,6 @@ public class PicturesResourceTest {
         List<Pictures> picturess = picturesRepository.findAll();
         assertThat(picturess).hasSize(1);
         Pictures testPictures = picturess.iterator().next();
-        assertThat(testPictures.getId_picture()).isEqualTo(DEFAULT_ID_PICTURE);
         assertThat(testPictures.getUrl_picture()).isEqualTo(DEFAULT_URL_PICTURE);
         assertThat(testPictures.getHeight()).isEqualTo(DEFAULT_HEIGHT);
         assertThat(testPictures.getWidth()).isEqualTo(DEFAULT_WIDTH);
@@ -150,7 +148,6 @@ public class PicturesResourceTest {
         picturesRepository.saveAndFlush(pictures);
 
         // Update the pictures
-        pictures.setId_picture(UPDATED_ID_PICTURE);
         pictures.setUrl_picture(UPDATED_URL_PICTURE);
         pictures.setHeight(UPDATED_HEIGHT);
         pictures.setWidth(UPDATED_WIDTH);
@@ -164,7 +161,6 @@ public class PicturesResourceTest {
         List<Pictures> picturess = picturesRepository.findAll();
         assertThat(picturess).hasSize(1);
         Pictures testPictures = picturess.iterator().next();
-        assertThat(testPictures.getId_picture()).isEqualTo(UPDATED_ID_PICTURE);
         assertThat(testPictures.getUrl_picture()).isEqualTo(UPDATED_URL_PICTURE);
         assertThat(testPictures.getHeight()).isEqualTo(UPDATED_HEIGHT);
         assertThat(testPictures.getWidth()).isEqualTo(UPDATED_WIDTH);
