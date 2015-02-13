@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="ludecolApp.levels.detail.title">Levels</span> {{levels.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.detail.field">Field</th>
+                    <th translate="entity.detail.value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.levels.id_level">Id_level</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{levels.id_level}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.levels.question">Question</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{levels.question}}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.levels.species_list">Species_list</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{levels.species_list}}" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            ui-sref="levels"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

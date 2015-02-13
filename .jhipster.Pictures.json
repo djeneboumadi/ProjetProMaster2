@@ -1,0 +1,47 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "id_picture",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Id_picture",
+            "fieldNameUnderscored": "id_picture"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "url_picture",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url_picture",
+            "fieldNameUnderscored": "url_picture"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "height",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "Height",
+            "fieldNameUnderscored": "height"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "width",
+            "fieldType": "Long",
+            "fieldNameCapitalized": "Width",
+            "fieldNameUnderscored": "width"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "matrix_position",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Matrix_position",
+            "fieldNameUnderscored": "matrix_position"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150210160408"
+}

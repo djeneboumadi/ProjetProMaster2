@@ -1,0 +1,19 @@
+{
+    "ludecolApp": {
+        "userStars" : {
+            "home": {
+                "title": "UserStarss",
+                "createLabel": "Create a new UserStars",
+                "createOrEditLabel": "Create or edit a UserStars"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete UserStars {{ id }}?"
+            },
+            "detail": {
+                "title": "UserStars"
+            },
+            "level_played": "Level_played",
+            "nb_stars": "Nb_stars"
+        }
+    }
+}

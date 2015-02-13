@@ -1,0 +1,20 @@
+{
+    "ludecolApp": {
+        "tags" : {
+            "home": {
+                "title": "Tagss",
+                "createLabel": "Create a new Tags",
+                "createOrEditLabel": "Create or edit a Tags"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Tags {{ id }}?"
+            },
+            "detail": {
+                "title": "Tags"
+            },
+            "id_tag": "Id_tag",
+            "pos_x": "Pos_x",
+            "pos_y": "Pos_y"
+        }
+    }
+}

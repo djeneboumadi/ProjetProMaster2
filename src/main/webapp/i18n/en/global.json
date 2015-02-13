@@ -6,6 +6,12 @@
             "home": "Home",
             "entities": {
                 "main": "Entities",
+                "levels": "Levels",
+                "pictures": "Pictures",
+                "tags": "Tags",
+                "species": "Species",
+                "userStars": "UserStars",
+                "userSpecies": "UserSpecies",
                 "additionalEntity": "JHipster will add addtional entities"
             },
             "account": {

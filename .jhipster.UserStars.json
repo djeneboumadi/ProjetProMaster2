@@ -1,0 +1,26 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "level_played",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Level_played",
+            "fieldNameUnderscored": "level_played"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "nb_stars",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Nb_stars",
+            "fieldNameUnderscored": "nb_stars"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150210162136"
+}

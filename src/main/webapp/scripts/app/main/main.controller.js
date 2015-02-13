@@ -26,7 +26,10 @@ function getAnnotations(el) {
 	  var message = "";
 	  all.forEach(function(entry) {
 	  	var etu = entry.shapes[0].geometry;
-	    message += "text : " + entry.text + "	|	posx :" + etu.x + "	|	posy :" +  etu.y + "	|	height : " + etu.height + "	|	width : " + etu.width + " \r ";
+	  	var x = etu.x + etu.width/2;
+	  	var y = etu.y + etu.height/2;
+	  		  	
+	    message += "text : " + entry.text + "	|	posx :" + x + "	|	posy :" +  y + " \r ";
 	  });
 	  $scope.message = message;
 	  $scope.$apply();

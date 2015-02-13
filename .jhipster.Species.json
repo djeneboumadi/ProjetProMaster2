@@ -1,0 +1,54 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "id_species",
+            "fieldType": "Integer",
+            "fieldNameCapitalized": "Id_species",
+            "fieldNameUnderscored": "id_species"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Name",
+            "fieldNameUnderscored": "name"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "category",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Category",
+            "fieldNameUnderscored": "category"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Description",
+            "fieldNameUnderscored": "description"
+        },
+        {
+            "fieldId": 5,
+            "fieldName": "url_picture_species",
+            "fieldType": "String",
+            "fieldNameCapitalized": "Url_picture_species",
+            "fieldNameUnderscored": "url_picture_species"
+        },
+        {
+            "fieldId": 6,
+            "fieldName": "is_in_encyclo",
+            "fieldType": "Boolean",
+            "fieldNameCapitalized": "Is_in_encyclo",
+            "fieldNameUnderscored": "is_in_encyclo"
+        }
+    ],
+    "fieldsContainOwnerManyToMany": false,
+    "fieldsContainOneToMany": false,
+    "fieldsContainLocalDate": false,
+    "fieldsContainCustomTime": false,
+    "fieldsContainBigDecimal": false,
+    "fieldsContainDateTime": false,
+    "changelogDate": "20150210161955"
+}

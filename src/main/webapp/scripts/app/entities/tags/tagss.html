@@ -1,0 +1,122 @@
+<div>
+
+    <h2 translate="ludecolApp.tags.home.title">Tags</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveTagsModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="ludecolApp.tags.home.createLabel">Create a new Tags</span>
+    </button>
+    <div class="modal fade" id="saveTagsModal" tabindex="-1" role="dialog" aria-labelledby="myTagsLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myTagsLabel" translate="ludecolApp.tags.home.createOrEditLabel">Create or edit a Tags</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="tags.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.id_tag">Id_tag</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.id_tag">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.pos_x">Pos_x</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.pos_x">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.pos_y">Pos_y</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.pos_y">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteTagsConfirmation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" ng-submit="confirmDelete(tags.id)">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p translate="ludecolApp.tags.delete.question" translate-values="{id: '{{tags.id}}'}">Are you sure you want to delete Tags {{tags.id}}?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th translate="ludecolApp.tags.id_tag">Id_tag</th>
+                    <th translate="ludecolApp.tags.pos_x">Pos_x</th>
+                    <th translate="ludecolApp.tags.pos_y">Pos_y</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tags in tagss">
+                    <td><a ui-sref="tagsDetails({id:tags.id})">{{tags.id}}</a></td>
+                    <td>{{tags.id_tag}}</td>
+                    <td>{{tags.pos_x}}</td>
+                    <td>{{tags.pos_y}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="tagsDetail({id:tags.id})"
+                                class="btn btn-info">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="update(tags.id)"
+                                class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(tags.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

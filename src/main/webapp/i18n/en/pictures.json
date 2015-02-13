@@ -1,0 +1,22 @@
+{
+    "ludecolApp": {
+        "pictures" : {
+            "home": {
+                "title": "Picturess",
+                "createLabel": "Create a new Pictures",
+                "createOrEditLabel": "Create or edit a Pictures"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Pictures {{ id }}?"
+            },
+            "detail": {
+                "title": "Pictures"
+            },
+            "id_picture": "Id_picture",
+            "url_picture": "Url_picture",
+            "height": "Height",
+            "width": "Width",
+            "matrix_position": "Matrix_position"
+        }
+    }
+}
