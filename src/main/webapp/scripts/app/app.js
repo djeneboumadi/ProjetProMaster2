@@ -76,3 +76,13 @@ angular.module('ludecolApp', ['LocalStorageModule', 'tmh.dynamicLocale',
         tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
         tmhDynamicLocaleProvider.useCookieStorage('NG_TRANSLATE_LANG_KEY');
     });
+    
+     angular.module("ludeolApp", ["ui.openseadragon"])
+    .controller("demo", ["$scope", function ($scope) {
+        $scope.options = {
+            prefixUrl: "https://github.com/openseadragon/example-images/tree/gh-pages/highsmith/highsmith_files",
+            tileSources: [
+                "https://github.com/openseadragon/example-images/tree/gh-pages/highsmith/highsmith/highsmith.dzi"
+            ]
+        };
+    }]);
