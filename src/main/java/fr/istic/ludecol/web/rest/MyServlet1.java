@@ -25,6 +25,8 @@ public class MyServlet1 extends HttpServlet implements javax.servlet.Servlet {
 			throws ServletException, IOException {
 		ServletContext cntx= getServletContext();
 		// Get the absolute path of the image
+		String url = req.getRequestURL().toString();
+		
 		String filename = cntx.getRealPath("/assets/images/photo-aerienne-marais-salants.jpg");
 		// retrieve mimeType dynamically
 		String mime = cntx.getMimeType(filename);

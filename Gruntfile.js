@@ -73,6 +73,13 @@ module.exports = function (grunt) {
                     changeOrigin: false
                 },
                 {
+                    context: '/im',
+                    host: 'localhost',
+                    port: 8080,
+                    https: false,
+                    changeOrigin: false
+                },
+                {
                     context: '/metrics',
                     host: 'localhost',
                     port: 8080,
