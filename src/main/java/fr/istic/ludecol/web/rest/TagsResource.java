@@ -1,18 +1,25 @@
 package fr.istic.ludecol.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import fr.istic.ludecol.domain.Tags;
-import fr.istic.ludecol.repository.TagsRepository;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import com.codahale.metrics.annotation.Timed;
+
+import fr.istic.ludecol.domain.Tags;
+import fr.istic.ludecol.repository.TagsRepository;
 
 /**
  * REST controller for managing Tags.
@@ -77,4 +84,18 @@ public class TagsResource {
         log.debug("REST request to delete Tags : {}", id);
         tagsRepository.delete(id);
     }
+    
+    @RequestMapping(value = "/tags/push",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public void get(@RequestBody List<fr.istic.ludecol.service.util.Annotation> annots) {
+    	System.err.println("get annotations");
+    	for (fr.istic.ludecol.service.util.Annotation a : annots){
+    		System.err.println(a.getText() + " : " +a.getX() + " , " + a.getY()  );
+    	} 
+    	
+    }
+  
+    
 }

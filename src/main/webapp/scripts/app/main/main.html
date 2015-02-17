@@ -4,13 +4,20 @@
         <div class="col-md-8">
             <h1>Welcome, LUDECOL APP!</h1>
           
-        	<img src="/im/toto.jpg" annotorious/>
+        	<!--<img src="/im/toto.jpg" annotorious/>-->
             
             <!--<div ng-controller="">
           <seadragon options="options" />
           </div>-->
 
         <button ng-click="getAnnotations(this)">Serialize</button>
+        
+           <div style="position:relative; width:640px; height:400px; margin-bottom:20px;">
+          <div id="openseadragon" style="width:640px; height:400px; background-color:#fff;"></div>
+          <a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
+        </div>
+        
+        
         <br/>
         
          <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
