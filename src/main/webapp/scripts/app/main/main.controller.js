@@ -11,7 +11,8 @@ angular.module('ludecolApp')
            	  id: "openseadragon",
            	  prefixUrl: "openseadragon/images/",
            	  showNavigator: false,
-           	  tileSources: {
+              tileSources:   "/tiles/helloworld.dzi"
+/*           	  tileSources: {
            	    type: 'legacy-image-pyramid',
            	    levels:[{
            	      url: '2003rosen1799/0001q.jpg',
@@ -26,7 +27,7 @@ angular.module('ludecolApp')
            	      height: 4402,
            	      width:  2970
            	    }]
-           	  }
+           	  }*/
            	});
         	 annotorious.plugin.HelloWorldPlugin = function(opt_config_options) { }
 
