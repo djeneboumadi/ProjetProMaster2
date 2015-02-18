@@ -7,6 +7,12 @@ angular.module('ludecolApp')
             $scope.isAuthenticated = Principal.isAuthenticated;
         });        
         $scope.$on('$viewContentLoaded', function(){
+        	$('#openseadragon').css("width",$('#column').width());
+        	$('#openseadragon').css("height", $('#column').height());
+        	$('#openseadragon').css("background-color", '#fff');
+        	
+        	
+        	
         	 var viewer = OpenSeadragon({
            	  id: "openseadragon",
            	  prefixUrl: "openseadragon/images/",
