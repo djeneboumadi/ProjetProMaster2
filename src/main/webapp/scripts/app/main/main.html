@@ -5,17 +5,16 @@
             <h1>Welcome, LUDECOL APP!</h1>
           
         	<!--<img src="/im/toto.jpg" annotorious/>-->
-            
-            <!--<div ng-controller="">
-          <seadragon options="options" />
-          </div>-->
+
 
         <button ng-click="getAnnotations(this)">Serialize</button>
-        
-           <div style="position:relative; width:640px; height:400px; margin-bottom:20px;">
-          <div id="openseadragon" style="width:640px; height:400px; background-color:#fff;"></div>
-          <a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
+        <div class="row">
+           <div class="col-lg-1 col-centered">
+          <div  class="col-lg-1 col-centered" align="center" id="openseadragon" style="width:800px; height:600px; background-color:#fff;"></div>
         </div>
+        </div>
+        
+          <a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
         
         
         <br/>
