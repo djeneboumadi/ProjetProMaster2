@@ -41,11 +41,11 @@ public class TagsResourceTest {
     private static final Integer DEFAULT_ID_TAG = 0;
     private static final Integer UPDATED_ID_TAG = 1;
 
-    private static final Long DEFAULT_POS_X = 0L;
-    private static final Long UPDATED_POS_X = 1L;
+    private static final Double DEFAULT_POS_X = 0D;
+    private static final Double UPDATED_POS_X = 1D;
 
-    private static final Long DEFAULT_POS_Y = 0L;
-    private static final Long UPDATED_POS_Y = 1L;
+    private static final Double DEFAULT_POS_Y = 0D;
+    private static final Double UPDATED_POS_Y = 1D;
 
     @Inject
     private TagsRepository tagsRepository;

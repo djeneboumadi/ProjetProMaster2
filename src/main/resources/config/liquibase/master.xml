@@ -12,4 +12,11 @@
     <include file="classpath:config/liquibase/changelog/20150210162136_added_entity_UserStars.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20150210162202_added_entity_UserSpecies.xml" relativeToChangelogFile="false"/>
     <!-- JHipster will add liquibase changelogs here -->
+    <!-- <include file="classpath:config/liquibase/changelog/20150213154659_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150213164541_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150221183305_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20150221185001_changelog.xml" relativeToChangelogFile="false"/> -->
+    <include file="classpath:config/liquibase/changelog/20150221185317_changelog.xml" relativeToChangelogFile="false"/>    
+    <include file="classpath:config/liquibase/changelog/20150221191450_changelog.xml" relativeToChangelogFile="false"/>    
+    
 </databaseChangeLog>

@@ -20,10 +20,10 @@ public class Tags implements Serializable {
     private Long id;
 
     @Column(name = "pos_x")
-    private Long pos_x;
+    private Double pos_x;
 
     @Column(name = "pos_y")
-    private Long pos_y;
+    private Double pos_y;
     
     @ManyToOne
     private Pictures picture ;
@@ -33,6 +33,14 @@ public class Tags implements Serializable {
     
     @ManyToOne
     private Species species ;
+    
+    /*public Tags(Long x, Long y, Pictures p, User u, Species s){
+    	this.pos_x = x;
+    	this.pos_y = y;
+    	this.picture = p;
+    	this.user = u;
+    	this.species = s;
+    }*/
 
     public Long getId() {
         return id;
@@ -42,19 +50,19 @@ public class Tags implements Serializable {
         this.id = id;
     }
 
-    public Long getPos_x() {
+    public Double getPos_x() {
         return pos_x;
     }
 
-    public void setPos_x(Long pos_x) {
+    public void setPos_x(Double pos_x) {
         this.pos_x = pos_x;
     }
 
-    public Long getPos_y() {
+    public Double getPos_y() {
         return pos_y;
     }
 
-    public void setPos_y(Long pos_y) {
+    public void setPos_y(Double pos_y) {
         this.pos_y = pos_y;
     }
 
