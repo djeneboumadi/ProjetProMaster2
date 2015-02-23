@@ -5,31 +5,26 @@
             <h1>Welcome, LUDECOL APP!</h1>
           
         	<!--<img src="/im/toto.jpg" annotorious/>-->
-
-        <button ng-click="getAnnotations(this)">Serialize</button>
-          <div   align="center" id="openseadragon" ></div>
-        
-          <a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
-        
-        
-        <br/>
-        
-         <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-		<textarea style="margin: 0px; width: 621px; height: 96px;" ng-bind="message"></textarea> 
+		<div id="imageZoomable" style="display:none">
+		<button ng-click="getAnnotations(this)">Serialize</button>
+		<a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
+		<div id="openseadragon"/>
+        </div>
+		<textarea style="margin: 0px; width: 621px; height: 96px; display:none" ng-bind="message"></textarea> 
             <div ng-switch="isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true"
                      translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
                     You are logged in as user "Admin".
                 </div>
-                
+                <div id="gallery">
                 <table  align="center"  cellpadding="10">
 	                <tr align="center">
 	                    <td style="padding-right:10px" >
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
+	                        <a onclick="launchLevel()"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
 	                        <img src="/assets/images/2etoiles.png" align="center"/>
 	                    </td>
 	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg" /></a>
+	                        <a onclick="launchLevel()"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg" /></a>
 	                        <img src="/assets/images/3etoiles.png" align="center"/>
 	                    </td>
 	                    <td style="padding-right:10px">
@@ -66,6 +61,7 @@
 	                    </td>
 	                </tr>
         		</table>
+        		</div>
 
                 <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated">
                     If you want to <a href="#/login">authenticate</a>, you can try the default login="admin" and

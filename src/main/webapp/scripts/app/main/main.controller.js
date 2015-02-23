@@ -124,6 +124,7 @@ angular.module('ludecolApp')
           	    console.log(data);
 
         	  });
+        	  launchLevel()
           	 };
     });
 
@@ -154,5 +155,22 @@ function annotate() {
       button.style.color = '#000';
     });
   }
-
-  
+function launchLevel()
+{
+hideUnHide("imageZoomable");
+hideUnHide("gallery");
+}
+function hideUnHide(anId)
+{
+	var node = document.getElementById(anId);
+	if (node.style.display=="none")
+	{
+		// Contenu caché, le montrer
+		node.style.display = "block";
+	}
+	else
+	{
+		// Contenu visible, le cacher
+		node.style.display = "none";
+	}
+}  
