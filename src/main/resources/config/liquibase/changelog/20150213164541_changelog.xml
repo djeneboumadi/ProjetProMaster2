@@ -40,8 +40,8 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="T_TAGSPK"/>
             </column>
-            <column name="pos_x" type="BIGINT"/>
-            <column name="pos_y" type="BIGINT"/>
+            <column name="pos_x" type="DOUBLE"/>
+            <column name="pos_y" type="DOUBLE"/>
             <column name="picture_id" type="BIGINT"/>
             <column name="species_id" type="BIGINT"/>
             <column name="user_id" type="BIGINT"/>

@@ -29,7 +29,6 @@
             </column>
             <column name="category" type="VARCHAR(255)"/>
             <column name="description" type="VARCHAR(255)"/>
-            <column name="id_species" type="INT"/>
             <column name="is_in_encyclo" type="BOOLEAN"/>
             <column name="name" type="VARCHAR(255)"/>
             <column name="url_picture_species" type="VARCHAR(255)"/>
@@ -40,7 +39,6 @@
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="T_TAGSPK"/>
             </column>
-            <column name="id_tag" type="INT"/>
             <column name="pos_x" type="BIGINT"/>
             <column name="pos_y" type="BIGINT"/>
         </createTable>
