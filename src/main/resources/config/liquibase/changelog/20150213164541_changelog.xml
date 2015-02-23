@@ -27,12 +27,12 @@
         <createTable tableName="T_SPECIES">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" primaryKeyName="T_SPECIESPK"/>
-            </column>
+            </column>            
             <column name="category" type="VARCHAR(255)"/>
-            <column name="description" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(255)"/>           
             <column name="is_in_encyclo" type="BOOLEAN"/>
-            <column name="name" type="VARCHAR(255)"/>
-            <column name="url_picture_species" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>        
+            <column name="url_picture_species" type="VARCHAR(255)"/>           
         </createTable>
     </changeSet>
     <changeSet author="Hidem (generated)" id="1423842349332-4">
@@ -92,5 +92,13 @@
     </changeSet>
     <changeSet author="Hidem (generated)" id="1423842349332-15">
         <addForeignKeyConstraint baseColumnNames="species_id" baseTableName="T_TAGS" constraintName="FK_tnb3uoa6cvs6jpic3ydmckmfq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_SPECIES"/>
+    </changeSet>
+    
+    <changeSet author="Hidem (generated)" id="1423842349332-16">
+	    <loadData encoding="UTF-8"
+	                  file="config/liquibase/species.csv"
+	                  separator=";"
+	                  tableName="T_SPECIES">
+	    </loadData>
     </changeSet>
 </databaseChangeLog>
