@@ -2,7 +2,7 @@
     <div class="row">
    
         <div id="column" class="col-md-8">
-            <h1>Welcome, LUDECOL APP!</h1>
+            <h1>Welcome on Ludecol App </h1>
           
         	<!--<img src="/im/toto.jpg" annotorious/>-->
 		<div id="imageZoomable" style="display:none">
@@ -18,48 +18,18 @@
                 </div>
                 <div id="gallery">
                 <table  align="center"  cellpadding="10">
-	                <tr align="center">
-	                    <td style="padding-right:10px" >
-	                        <a onclick="launchLevel()"><img ng-src="{{picturess[0].url_picture}}"/></a>
-	                        <img src="/assets/images/3etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a onclick="launchLevel()"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg" /></a>
-	                        <img src="/assets/images/3etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
-	                        <img src="/assets/images/1etoiles.png" />
-	                    </td>
-	                </tr>
-	                <tr align="center">
-	                    <td style="padding-right:10px" >
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
-	                        <img src="/assets/images/5etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg" /></a>
-	                        <img src="/assets/images/4etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
-	                        <img src="/assets/images/1etoiles.png" />
-	                    </td>
-	                </tr>
-	                <tr align="center">
-	                    <td style="padding-right:10px" >
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
-	                        <img src="/assets/images/0etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg" /></a>
-	                        <img src="/assets/images/0etoiles.png" align="center"/>
-	                    </td>
-	                    <td style="padding-right:10px">
-	                        <a href=""><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Marais_du_Nord.jpg/310px-Marais_du_Nord.jpg"/></a>
-	                        <img src="/assets/images/0etoiles.png" align="center"/>
-	                    </td>
-	                </tr>
+
+                <tr ng-repeat="picture in (picturess.length/3 | array)">
+                
+							<td ng-repeat="picture in picturess.slice(3*$index, 3*$index + 3)" style="padding-right:10px" >
+		                        <a onclick="launchLevel()"><img ng-src="{{picture.url_picture}}" width="310" height="227" /></a>
+		                        <img src="/assets/images/3etoiles.png" align="center"/>
+		                     
+	                   		</td>
+								
+				</tr>
+				
+	               
         		</table>
         		</div>
 
