@@ -121,9 +121,9 @@ angular.module('ludecolApp')
 			var annot = new Object();
 			var select = document.getElementById("species");
 			var index = select.options[select.selectedIndex].value;
-			console.log($scope.speciess[index].name);
 			annot.x= x;
 			annot.y= x;
+			annot.user=$scope.account.login;
 			annot.species=$scope.speciess[index];
 			annot.text= entry.text;
 			annots.push(annot);
