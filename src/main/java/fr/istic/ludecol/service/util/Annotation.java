@@ -9,11 +9,11 @@ import fr.istic.ludecol.domain.User;
     	
     	private String text;
     	
-    	private Long id_species;
+    	private Species species;
     	
-    	private Long id_user;
+    	private User user;
     	
-    	private Long id_picture;
+    	private Pictures picture;
     	
     	public Double getX() {
 			return x; 
@@ -33,23 +33,23 @@ import fr.istic.ludecol.domain.User;
 		public void setText(String text) {
 			this.text = text;
 		}
-		public Long getSpecies() {
-			return id_species;
+		public Species getSpecies() {
+			return species;
 		}
-		public void setSpecies(Long species) {
-			this.id_species = species;
+		public void setSpecies(Species species) {
+			this.species = species;
 		}
-		public Long getUser() {
-			return id_user;
+		public User getUser() {
+			return user;
 		}
-		public void setUser(Long user) {
-			this.id_user = user;
+		public void setUser(User user) {
+			this.user = user;
 		}
-		public Long getPicture() {
-			return id_picture;
+		public Pictures getPicture() {
+			return picture;
 		}
-		public void setPicture(Long picture) {
-			this.id_picture = picture;
+		public void setPicture(Pictures picture) {
+			this.picture = picture;
 		}
 		
     }
