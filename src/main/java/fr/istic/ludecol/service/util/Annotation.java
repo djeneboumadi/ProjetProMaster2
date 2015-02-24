@@ -1,6 +1,20 @@
 package fr.istic.ludecol.service.util;
+
+import fr.istic.ludecol.domain.Pictures;
+import fr.istic.ludecol.domain.Species;
+import fr.istic.ludecol.domain.User;
  public class Annotation{
-    	Double x,y;
+	 
+    	private Double x,y;
+    	
+    	private String text;
+    	
+    	private Species species;
+    	
+    	private User user;
+    	
+    	private Pictures picture;
+    	
     	public Double getX() {
 			return x; 
 		}
@@ -19,5 +33,23 @@ package fr.istic.ludecol.service.util;
 		public void setText(String text) {
 			this.text = text;
 		}
-		String text;
+		public Species getSpecies() {
+			return species;
+		}
+		public void setSpecies(Species species) {
+			this.species = species;
+		}
+		public User getUser() {
+			return user;
+		}
+		public void setUser(User user) {
+			this.user = user;
+		}
+		public Pictures getPicture() {
+			return picture;
+		}
+		public void setPicture(Pictures picture) {
+			this.picture = picture;
+		}
+		
     }
