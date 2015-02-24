@@ -92,15 +92,13 @@ public class TagsResource {
     public void get(@RequestBody List<fr.istic.ludecol.service.util.Annotation> annots) {
     	System.err.println("get annotations");
     	for (fr.istic.ludecol.service.util.Annotation a : annots){
-    		System.err.println(a.getText() + " : " +a.getX() + " , " + a.getY()  );
+    		System.err.println(a.getText() + " : " +a.getX() + " , " + a.getY()  + " , " + a.getSpecies().getName() );
     		
     		Tags t = new Tags();
+    		t.setSpecies(a.getSpecies());
     		t.setPos_x(a.getX());
     		t.setPos_y(a.getY());
     		this.create(t);
-    	} 
-    	
+    	} 	
     }
-  
-    
 }
