@@ -1,11 +1,27 @@
 'use strict';
 
 angular.module('ludecolApp')
-    .controller('MainController', function ($scope, Principal,$http) {
+    .controller('MainController', function ($scope, Principal, Species, Pictures, $http) {
         Principal.identity().then(function(account) {
             $scope.account = account;
             $scope.isAuthenticated = Principal.isAuthenticated;
-        });        
+        });   
+        
+        $scope.speciess = [];
+        $scope.loadAllSpecies = function() {
+            Species.query(function(result) {
+               $scope.speciess = result;
+            });
+        };
+        $scope.loadAllSpecies();
+        $scope.picturess = [];
+        $scope.loadAllPictures = function() {
+            Pictures.query(function(result) {
+               $scope.picturess = result;
+            });
+        };
+        $scope.loadAllPictures();
+             
         $scope.$on('$viewContentLoaded', function(){
         	$('#openseadragon').css("width",$('#column').width());
         	$('#openseadragon').css("height", $('#column').height());
