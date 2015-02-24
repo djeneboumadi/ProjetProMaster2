@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import fr.istic.ludecol.domain.Tags;
+import fr.istic.ludecol.domain.User;
 import fr.istic.ludecol.repository.TagsRepository;
+import fr.istic.ludecol.repository.UserRepository;
 
 /**
  * REST controller for managing Tags.
@@ -29,7 +31,9 @@ import fr.istic.ludecol.repository.TagsRepository;
 public class TagsResource {
 
     private final Logger log = LoggerFactory.getLogger(TagsResource.class);
-
+    
+    @Inject
+    private UserRepository userRepository;
     @Inject
     private TagsRepository tagsRepository;
 
@@ -92,15 +96,15 @@ public class TagsResource {
     public void get(@RequestBody List<fr.istic.ludecol.service.util.Annotation> annots) {
     	System.err.println("get annotations");
     	for (fr.istic.ludecol.service.util.Annotation a : annots){
-    		System.err.println(a.getText() + " : " +a.getX() + " , " + a.getY()  );
+    		System.err.println(a.getText() + " : " +a.getX() + " , " + a.getY()  + " , " + a.getSpecies().getName() + " , " + a.getUser() );
     		
+    		User user = userRepository.findOneByLogin(a.getUser());
     		Tags t = new Tags();
+    		t.setSpecies(a.getSpecies());
+    		t.setUser(user);
     		t.setPos_x(a.getX());
     		t.setPos_y(a.getY());
     		this.create(t);
-    	} 
-    	
+    	} 	
     }
-  
-    
 }

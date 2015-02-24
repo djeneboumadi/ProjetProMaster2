@@ -11,7 +11,7 @@ import fr.istic.ludecol.domain.User;
     	
     	private Species species;
     	
-    	private User user;
+    	private String user;
     	
     	private Pictures picture;
     	
@@ -39,10 +39,10 @@ import fr.istic.ludecol.domain.User;
 		public void setSpecies(Species species) {
 			this.species = species;
 		}
-		public User getUser() {
+		public String getUser() {
 			return user;
 		}
-		public void setUser(User user) {
+		public void setUser(String user) {
 			this.user = user;
 		}
 		public Pictures getPicture() {
