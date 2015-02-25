@@ -23,7 +23,7 @@
                 
 							<td ng-repeat="level in levelss.slice(2*$index, 2*$index + 2)" style="padding-right:10px" >
 		                        <a ng-click="launchLevel(level.picture.url_picture)"><img ng-src="{{level.picture.url_picture}}" width="310" height="227" /></a>
-		                        <img src="/assets/images/3etoiles.png" align="center"/>
+		                        <img ng-src="{{getNbStars(level)}}" align="center"/>
 		                     
 	                   		</td>
 								

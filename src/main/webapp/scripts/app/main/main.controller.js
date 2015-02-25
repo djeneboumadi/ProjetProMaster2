@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ludecolApp')
-.controller('MainController', function ($scope, Principal, Levels, Species, Pictures, $http) {
+.controller('MainController', function ($scope, Principal, Levels, UserStars, Species, Pictures, $http) {
 	Principal.identity().then(function(account) {
 		$scope.account = account;
 		$scope.isAuthenticated = Principal.isAuthenticated;
@@ -30,6 +30,14 @@ angular.module('ludecolApp')
 		});
 	};
 	$scope.loadAllPictures();
+	
+	$scope.userstarss = [];
+	$scope.loadAllUserStars = function() {
+		UserStars.query(function(result) {
+			$scope.userstarss = result;
+		});
+	};
+	$scope.loadAllUserStars();
 
 	$scope.LoadOpenseadragon = function(name){
 		$('#openseadragon').css("width",$('#column').width());
@@ -132,6 +140,18 @@ angular.module('ludecolApp')
 	}
 	hideUnHide("imageZoomable");
 	hideUnHide("gallery");
+	}
+	
+	$scope.getNbStars = function(level){
+	var right = 0;
+	
+	for(i=0; i<$scope.userstarss.length; i++){
+		if($scope.userstarss[i].level.id == level.id && $scope.userstarss[i].user.login == $scope.account.login ){
+			right = $scope.userstarss[i].nb_stars;
+		}
+	}
+		console.log($scope.userstarss)
+		return "/assets/images/"+right+"etoiles.png";
 	}
 
 	$scope.getAnnotations = function(el) {
