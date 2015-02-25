@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ludecolApp')
-.controller('MainController', function ($scope, Principal, Levels, UserStars, Species, Pictures, $http) {
+.controller('MainController', function ($scope, Tags, Principal, Levels, UserStars, Species, Pictures, $http) {
 	Principal.identity().then(function(account) {
 		$scope.account = account;
 		$scope.isAuthenticated = Principal.isAuthenticated;
