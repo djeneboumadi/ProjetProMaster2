@@ -65,7 +65,6 @@ angular.module('ludecolApp')
 		$('#openseadragon').css("width",$('#column').width());
 		$('#openseadragon').css("height", $('#column').height());
 		$('#openseadragon').css("background-color", '#fff');
-
 		
 
 		var viewer = OpenSeadragon({
@@ -148,7 +147,9 @@ angular.module('ludecolApp')
 	
 	$scope.launchLevel = function(nb){
 	if(nb != null){
-	var base = nb.substring(nb.lastIndexOf('/') + 1); 
+		$scope.myPicture =nb;
+		var picture = nb.url_picture;
+	var base = picture.substring(picture.lastIndexOf('/') + 1); 
     if(base.lastIndexOf(".") != -1){       
         base = base.substring(0, base.lastIndexOf("."));
     }
