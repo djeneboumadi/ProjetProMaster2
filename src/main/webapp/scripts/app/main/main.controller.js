@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ludecolApp')
-.controller('MainController', function ($scope, Principal, Species, Pictures, $http) {
+.controller('MainController', function ($scope, Principal, Levels, Species, Pictures, $http) {
 	Principal.identity().then(function(account) {
 		$scope.account = account;
 		$scope.isAuthenticated = Principal.isAuthenticated;
@@ -14,6 +14,14 @@ angular.module('ludecolApp')
 	};
 	$scope.loadAllSpecies();
 	
+	$scope.levelss = [];
+	$scope.loadAllLevels = function() {
+		Levels.query(function(result) {
+			$scope.levelss = result;
+		});
+	};
+	$scope.loadAllLevels();
+	
 	
 	$scope.picturess = [];
 	$scope.loadAllPictures = function() {
@@ -23,7 +31,7 @@ angular.module('ludecolApp')
 	};
 	$scope.loadAllPictures();
 
-	$scope.$on('$viewContentLoaded', function(){
+	$scope.LoadOpenseadragon = function(name){
 		$('#openseadragon').css("width",$('#column').width());
 		$('#openseadragon').css("height", $('#column').height());
 		$('#openseadragon').css("background-color", '#fff');
@@ -34,7 +42,7 @@ angular.module('ludecolApp')
 			id: "openseadragon",
 			prefixUrl: "openseadragon/images/",
 			showNavigator: false,
-			tileSources:   "/tiles/helloworld.dzi"
+			tileSources:   "/tiles/"+name+".dzi"
 				/*           	  tileSources: {
            	    type: 'legacy-image-pyramid',
            	    levels:[{
@@ -104,9 +112,27 @@ angular.module('ludecolApp')
 			$scope.myannotations.splice($scope.myannotations.indexOf(an),1);
 			$scope.myannotations.push(an1);
 		});
+		$scope.viewer = viewer;
 		anno.makeAnnotatable(viewer);
-
-	});
+	}
+	
+	$scope.launchLevel = function(nb){
+	if(nb != null){
+	var base = nb.substring(nb.lastIndexOf('/') + 1); 
+    if(base.lastIndexOf(".") != -1){       
+        base = base.substring(0, base.lastIndexOf("."));
+    }
+    console.log(base);
+	$scope.LoadOpenseadragon(base);
+	}
+	else
+	{
+	$scope.viewer.destroy();
+	console.log($scope.viewer);
+	}
+	hideUnHide("imageZoomable");
+	hideUnHide("gallery");
+	}
 
 	$scope.getAnnotations = function(el) {
 		var all = $scope.myannotations;
@@ -137,7 +163,8 @@ angular.module('ludecolApp')
 			console.log(data);
 
 		});
-		launchLevel()
+		var nothing = null;
+		$scope.launchLevel(nothing)
 	};
 });
 
@@ -167,11 +194,6 @@ function annotate() {
 		// Reset button style
 		button.style.color = '#000';
 	});
-}
-function launchLevel()
-{
-	hideUnHide("imageZoomable");
-	hideUnHide("gallery");
 }
 function hideUnHide(anId)
 {
