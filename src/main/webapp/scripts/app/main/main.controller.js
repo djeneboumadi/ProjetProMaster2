@@ -4,7 +4,29 @@ angular.module('ludecolApp')
 	Principal.identity().then(function(account) {
 		$scope.account = account;
 		$scope.isAuthenticated = Principal.isAuthenticated;
-	});   
+	});  
+	
+	
+	$scope.tagss = [];
+	$scope.loadAllTags = function() {
+		Tags.query(function(result) {
+
+			$scope.tagss = result;
+		});
+	};
+	$scope.loadAllTags();
+	
+	$scope.tags_picture = [];
+	$scope.loadTagsPicture = function(id) {
+		var j =0;
+		for(i=0; i<$scope.tagss.length; i++) {
+			console.log("après boucle "+ $scope.tagss[i].picture.id);
+			if($scope.tagss[i].picture.id == id) {
+				$scope.tags_picture[j]=$scope.tagss[i];
+				j++;
+			}
+		}
+	}
 
 	$scope.speciess = [];
 	$scope.loadAllSpecies = function() {
@@ -165,7 +187,8 @@ angular.module('ludecolApp')
 			var y = etu.y + etu.height/2;
 			var annot = new Object();
 			var select = document.getElementById("species");
-			var index = select.options[select.selectedIndex].value;
+			var index = select.options[select.selectedIndex].value;			
+			//$scope.loadTagsPicture(id_de_la_photo); récupère tout les tags corespondant a une photo dans le tableau : $scope.tags_picture
 			annot.x= x;
 			annot.y= x;
 			annot.user=$scope.account.login;
