@@ -1,0 +1,7 @@
+id;height;matrix_position;url_picture;width;mother_picture_id
+1;123;;/tiles/DSC_1780.jpg;234;NULL
+2;123;;/tiles/flattened_grass-wallpaper-4096x1152.jpg;123;NULL
+3;1212;dd;/tiles/French_Swamp.jpg;1212;NULL
+4;123;dd;/tiles/marais.jpg;456;NULL
+5;123;dd;/tiles/marais2.jpg;465;NULL
+6;123;ss;/tiles/photo-aerienne-marais-salants.jpg;456;NULL
