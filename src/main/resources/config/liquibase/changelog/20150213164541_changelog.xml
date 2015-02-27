@@ -1,104 +1,149 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <changeSet author="Hidem (generated)" id="1423842349332-1">
-        <createTable tableName="T_LEVELS">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_LEVELSPK"/>
-            </column>
-            <column name="difficulty" type="INT"/>
-            <column name="question" type="VARCHAR(255)"/>
-            <column name="species_list" type="VARCHAR(255)"/>
-            <column name="picture_id" type="BIGINT"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-2">
-        <createTable tableName="T_PICTURES">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_PICTURESPK"/>
-            </column>
-            <column name="height" type="BIGINT"/>
-            <column name="matrix_position" type="VARCHAR(255)"/>
-            <column name="url_picture" type="VARCHAR(255)"/>
-            <column name="width" type="BIGINT"/>
-            <column name="mother_picture_id" type="BIGINT"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-3">
-        <createTable tableName="T_SPECIES">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_SPECIESPK"/>
-            </column>            
-            <column name="category" type="VARCHAR(255)"/>
-            <column name="description" type="VARCHAR(255)"/>           
-            <column name="is_in_encyclo" type="BOOLEAN"/>
-            <column name="name" type="VARCHAR(255)"/>        
-            <column name="url_picture_species" type="VARCHAR(255)"/>           
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-4">
-        <createTable tableName="T_TAGS">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_TAGSPK"/>
-            </column>
-            <column name="pos_x" type="DOUBLE"/>
-            <column name="pos_y" type="DOUBLE"/>
-            <column name="picture_id" type="BIGINT"/>
-            <column name="species_id" type="BIGINT"/>
-            <column name="user_id" type="BIGINT"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-5">
-        <createTable tableName="T_USERSPECIES">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_USERSPECIESPK"/>
-            </column>
-            <column name="species_id" type="BIGINT"/>
-            <column name="user_id" type="BIGINT"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-6">
-        <createTable tableName="T_USERSTARS">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="T_USERSTARSPK"/>
-            </column>
-            <column name="nb_stars" type="INT"/>
-            <column name="level_id" type="BIGINT"/>
-            <column name="user_id" type="BIGINT"/>
-        </createTable>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-7">
-        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="T_USERSTARS" constraintName="FK_1qc5ecbh0plo0kvxiq4qs2yh5" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_USER"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-8">
-        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="T_TAGS" constraintName="FK_2mj3hsx56wjjvwa5svkvkw5sm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_USER"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-9">
-        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="T_USERSPECIES" constraintName="FK_8rx4eayma0gqu5ffbwm5xafoe" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_USER"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-10">
-        <addForeignKeyConstraint baseColumnNames="mother_picture_id" baseTableName="T_PICTURES" constraintName="FK_c4fb46y9xg9hv9p44v2axtukt" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_PICTURES"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-11">
-        <addForeignKeyConstraint baseColumnNames="picture_id" baseTableName="T_TAGS" constraintName="FK_c76k3p32yib99410v8mlq80mn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_PICTURES"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-12">
-        <addForeignKeyConstraint baseColumnNames="picture_id" baseTableName="T_LEVELS" constraintName="FK_ke68yg9tb2hjy12670hw7kxh1" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_PICTURES"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-13">
-        <addForeignKeyConstraint baseColumnNames="species_id" baseTableName="T_USERSPECIES" constraintName="FK_m0rfgbm8f72eht1dk949kv7qk" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_SPECIES"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-14">
-        <addForeignKeyConstraint baseColumnNames="level_id" baseTableName="T_USERSTARS" constraintName="FK_p2m00tpr1ekhanxu9afi0itce" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_LEVELS"/>
-    </changeSet>
-    <changeSet author="Hidem (generated)" id="1423842349332-15">
-        <addForeignKeyConstraint baseColumnNames="species_id" baseTableName="T_TAGS" constraintName="FK_tnb3uoa6cvs6jpic3ydmckmfq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="T_SPECIES"/>
-    </changeSet>
-    
-    <changeSet author="Hidem (generated)" id="1423842349332-16">
-	    <loadData encoding="UTF-8"
-	                  file="config/liquibase/species.csv"
-	                  separator=";"
-	                  tableName="T_SPECIES">
-	    </loadData>
-    </changeSet>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet author="Hidem (generated)" id="1423842349332-1">
+		<createTable tableName="T_LEVELS">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_LEVELSPK" />
+			</column>
+			<column name="difficulty" type="INT" />
+			<column name="question" type="VARCHAR(255)" />
+			<column name="species_list" type="VARCHAR(255)" />
+			<column name="picture_id" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-2">
+		<createTable tableName="T_PICTURES">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_PICTURESPK" />
+			</column>
+			<column name="height" type="BIGINT" />
+			<column name="matrix_position" type="VARCHAR(255)" />
+			<column name="url_picture" type="VARCHAR(255)" />
+			<column name="width" type="BIGINT" />
+			<column name="mother_picture_id" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-3">
+		<createTable tableName="T_SPECIES">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_SPECIESPK" />
+			</column>
+			<column name="category" type="VARCHAR(255)" />
+			<column name="description" type="VARCHAR(255)" />
+			<column name="is_in_encyclo" type="BOOLEAN" />
+			<column name="name" type="VARCHAR(255)" />
+			<column name="url_picture_species" type="VARCHAR(255)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-4">
+		<createTable tableName="T_TAGS">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_TAGSPK" />
+			</column>
+			<column name="pos_x" type="DOUBLE" />
+			<column name="pos_y" type="DOUBLE" />
+			<column name="picture_id" type="BIGINT" />
+			<column name="species_id" type="BIGINT" />
+			<column name="user_id" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-5">
+		<createTable tableName="T_USERSPECIES">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_USERSPECIESPK" />
+			</column>
+			<column name="species_id" type="BIGINT" />
+			<column name="user_id" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-6">
+		<createTable tableName="T_USERSTARS">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="T_USERSTARSPK" />
+			</column>
+			<column name="nb_stars" type="INT" />
+			<column name="level_id" type="BIGINT" />
+			<column name="user_id" type="BIGINT" />
+		</createTable>
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-7">
+		<addForeignKeyConstraint baseColumnNames="user_id"
+			baseTableName="T_USERSTARS" constraintName="FK_1qc5ecbh0plo0kvxiq4qs2yh5"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_USER" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-8">
+		<addForeignKeyConstraint baseColumnNames="user_id"
+			baseTableName="T_TAGS" constraintName="FK_2mj3hsx56wjjvwa5svkvkw5sm"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_USER" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-9">
+		<addForeignKeyConstraint baseColumnNames="user_id"
+			baseTableName="T_USERSPECIES" constraintName="FK_8rx4eayma0gqu5ffbwm5xafoe"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_USER" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-10">
+		<addForeignKeyConstraint baseColumnNames="mother_picture_id"
+			baseTableName="T_PICTURES" constraintName="FK_c4fb46y9xg9hv9p44v2axtukt"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_PICTURES" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-11">
+		<addForeignKeyConstraint baseColumnNames="picture_id"
+			baseTableName="T_TAGS" constraintName="FK_c76k3p32yib99410v8mlq80mn"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_PICTURES" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-12">
+		<addForeignKeyConstraint baseColumnNames="picture_id"
+			baseTableName="T_LEVELS" constraintName="FK_ke68yg9tb2hjy12670hw7kxh1"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_PICTURES" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-13">
+		<addForeignKeyConstraint baseColumnNames="species_id"
+			baseTableName="T_USERSPECIES" constraintName="FK_m0rfgbm8f72eht1dk949kv7qk"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_SPECIES" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-14">
+		<addForeignKeyConstraint baseColumnNames="level_id"
+			baseTableName="T_USERSTARS" constraintName="FK_p2m00tpr1ekhanxu9afi0itce"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_LEVELS" />
+	</changeSet>
+	<changeSet author="Hidem (generated)" id="1423842349332-15">
+		<addForeignKeyConstraint baseColumnNames="species_id"
+			baseTableName="T_TAGS" constraintName="FK_tnb3uoa6cvs6jpic3ydmckmfq"
+			deferrable="false" initiallyDeferred="false" referencedColumnNames="id"
+			referencedTableName="T_SPECIES" />
+	</changeSet>
+
+	<changeSet author="Hidem (generated)" id="1423842349332-16">
+		<loadData encoding="UTF-8" file="config/liquibase/species.csv"
+			separator=";" tableName="T_SPECIES">
+		</loadData>
+	</changeSet>
+
+	<changeSet author="Hidem (generated)" id="1423842349332-18">
+		<loadData encoding="UTF-8" file="config/liquibase/pictures.csv"
+			separator=";" tableName="T_PICTURES">
+		</loadData>
+	</changeSet>
+
+	<changeSet author="Hidem (generated)" id="1423842349332-17">
+		<loadData encoding="UTF-8" file="config/liquibase/levels.csv"
+			separator=";" tableName="T_LEVELS">
+		</loadData>
+	</changeSet>
+
+	<changeSet author="Hidem (generated)" id="1423842349332-19">
+		<loadData encoding="UTF-8" file="config/liquibase/userstars.csv"
+			separator=";" tableName="T_USERSTARS">
+		</loadData>
+	</changeSet>
 </databaseChangeLog>
