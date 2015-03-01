@@ -3,12 +3,12 @@
         <div id="column" class="col-md-8">
             <h1>Welcome on Ludecol App </h1>
 
-            <div id="imageZoomable">
+            <div id="imageZoomable" style="display:none">
                 <button ng-click="getAnnotations(this)">Serialize</button>
                 <a id="map-annotate-button" ng-click="annotate()">ADD ANNOTATION</a>
                 <div id="openseadragon" />
             </div>
-            <textarea style="margin: 0; width: 621px; height: 96px;" ng-bind="message"></textarea>
+            
 
             <div ng-switch="isAuthenticated()">
                 <div class="alert alert-success" ng-switch-when="true"

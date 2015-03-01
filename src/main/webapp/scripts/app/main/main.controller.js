@@ -87,7 +87,7 @@ angular.module('ludecolApp')
         // Vous avez besoin de commencer par initialiser ce truc au load !
         // Et je ne sais pas ce que vous voulez faire avec le name, mais l'idée c'est ça
         $scope.$on('$viewContentLoaded', function () {
-            loadOpenSeeDragon('marais');
+         //   loadOpenSeeDragon('marais');
         });
 
         $scope.launchLevel = function (nb) {
@@ -103,7 +103,7 @@ angular.module('ludecolApp')
             }
             else
             {
-                //$scope.viewer.destroy();
+                $scope.viewer.destroy();
                 //console.log($scope.viewer);
             }
             hideUnHide("imageZoomable");
