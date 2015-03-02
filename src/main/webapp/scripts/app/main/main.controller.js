@@ -165,13 +165,15 @@ angular.module('ludecolApp')
 				base = base.substring(0, base.lastIndexOf("."));
 			}
 			$scope.LoadOpenseadragon(base);
+			hideUnHide("imageZoomable");
+			hideUnHide("gallery");
 		}
 		else
 		{
 			$scope.viewer.destroy();
+			location.reload();
 		}
-		hideUnHide("imageZoomable");
-		hideUnHide("gallery");
+
 	}
 
 	//récupération du nombre d'étoiles en fonction du niveau et de l'utilisateur
@@ -264,7 +266,7 @@ angular.module('ludecolApp')
 		}else if(res>60){
 			star.nbStar=3;
 		}else if(res>40){
-			stars.nbStar=2;	
+			star.nbStar=2;	
 		}else if(res>20){
 			star.nbStar=1;	
 		}else{
