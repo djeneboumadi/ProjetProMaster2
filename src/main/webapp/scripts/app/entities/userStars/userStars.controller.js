@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.userStars = {level_played: null, nb_stars: null, id: null};
+            $scope.userStars = {level_played: null, nb_stars: null, id: null, level: null, user: null};
         };
     });

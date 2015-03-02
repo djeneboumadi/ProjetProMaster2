@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.tags = {id_tag: null, pos_x: null, pos_y: null, id: null};
+            $scope.tags = {id: null, pos_x: null, pos_y: null, picture: null, species: null, user: null};
         };
     });

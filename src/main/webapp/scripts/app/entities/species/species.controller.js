@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.species = {id_species: null, name: null, category: null, description: null, url_picture_species: null, is_in_encyclo: null, id: null};
+            $scope.species = {id: null, name: null, category: null, description: null, url_picture_species: null, is_in_encyclo: null};
         };
     });

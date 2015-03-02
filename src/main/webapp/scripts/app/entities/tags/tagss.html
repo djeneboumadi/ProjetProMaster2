@@ -26,11 +26,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label translate="ludecolApp.tags.id_tag">Id_tag</label>
-                            <input type="number" class="form-control"
-                                   ng-model="tags.id_tag">
-                        </div>
-                        <div class="form-group">
                             <label translate="ludecolApp.tags.pos_x">Pos_x</label>
                             <input type="number" class="form-control"
                                    ng-model="tags.pos_x">
@@ -40,7 +35,21 @@
                             <input type="number" class="form-control"
                                    ng-model="tags.pos_y">
                         </div>
-
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.picture">Picture</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.picture.id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.species">Species</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.species.id">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.tags.user">User</label>
+                            <input type="number" class="form-control"
+                                   ng-model="tags.user.id">
+                        </div>                                   
 
                     </div>
                     <div class="modal-footer">
@@ -86,18 +95,22 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="ludecolApp.tags.id_tag">Id_tag</th>
                     <th translate="ludecolApp.tags.pos_x">Pos_x</th>
                     <th translate="ludecolApp.tags.pos_y">Pos_y</th>
+                    <th translate="ludecolApp.tags.picture">Picture</th>
+                    <th translate="ludecolApp.tags.species">Species</th>
+                    <th translate="ludecolApp.tags.user">User</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="tags in tagss">
                     <td><a ui-sref="tagsDetails({id:tags.id})">{{tags.id}}</a></td>
-                    <td>{{tags.id_tag}}</td>
                     <td>{{tags.pos_x}}</td>
                     <td>{{tags.pos_y}}</td>
+                    <td>{{tags.picture.id}}</td>
+                    <td>{{tags.species.id}}</td>
+                    <td>{{tags.user.id}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="tagsDetail({id:tags.id})"

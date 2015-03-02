@@ -97,17 +97,17 @@ public class UserStarsResource {
 		User user = userRepository.findOneByLogin(userstars.getUser());
 		UserStars us = new UserStars();
 		
-
-		if(userStarsRepository.findOneByLevel_idUser_id(userstars.getLevel().getId(), user.getId())==null){
+		userStarsRepository.findAll();
+		/*if(userStarsRepository.findOneByLevel_idUser_id(userstars.getLevel().getId(), user.getId())==null){
 			System.err.println("zzzzzzzzzzzzzzzzzz");
 			
-		}else{
+		}else{*/
 			System.err.println(userstars.getLevel() + " : " +userstars.getNbStar()+ " , " +userstars.getUser() );
 			us.setLevel(userstars.getLevel());
 			us.setNb_stars(userstars.getNbStar());
 			us.setUser(user);
 			this.create(us);
-		}
+		//}
 
 	}
 }

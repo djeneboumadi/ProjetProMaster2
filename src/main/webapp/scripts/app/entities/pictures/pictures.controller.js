@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.pictures = {id_picture: null, url_picture: null, height: null, width: null, matrix_position: null, id: null};
+            $scope.pictures = {id: null, url_picture: null, height: null, width: null, matrix_position: null, mother_picture: null};
         };
     });

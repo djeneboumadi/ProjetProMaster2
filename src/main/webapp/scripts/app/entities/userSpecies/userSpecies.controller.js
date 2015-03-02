@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.userSpecies = {id: null};
+            $scope.userSpecies = {id: null, species: null, user: null};
         };
     });

@@ -26,11 +26,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label translate="ludecolApp.pictures.id_picture">Id_picture</label>
-                            <input type="number" class="form-control"
-                                   ng-model="pictures.id_picture">
-                        </div>
-                        <div class="form-group">
                             <label translate="ludecolApp.pictures.url_picture">Url_picture</label>
                             <input type="text" class="form-control"
                                    ng-model="pictures.url_picture">
@@ -49,6 +44,11 @@
                             <label translate="ludecolApp.pictures.matrix_position">Matrix_position</label>
                             <input type="text" class="form-control"
                                    ng-model="pictures.matrix_position">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.pictures.mother_picture">Mother_picture</label>
+                            <input type="text" class="form-control"
+                                   ng-model="pictures.mother_picture.id">
                         </div>
 
 
@@ -96,22 +96,22 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="ludecolApp.pictures.id_picture">Id_picture</th>
                     <th translate="ludecolApp.pictures.url_picture">Url_picture</th>
                     <th translate="ludecolApp.pictures.height">Height</th>
                     <th translate="ludecolApp.pictures.width">Width</th>
                     <th translate="ludecolApp.pictures.matrix_position">Matrix_position</th>
+                    <th translate="ludecolApp.pictures.mother_picture">Mother_picture</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="pictures in picturess">
                     <td><a ui-sref="picturesDetails({id:pictures.id})">{{pictures.id}}</a></td>
-                    <td>{{pictures.id_picture}}</td>
                     <td>{{pictures.url_picture}}</td>
                     <td>{{pictures.height}}</td>
                     <td>{{pictures.width}}</td>
                     <td>{{pictures.matrix_position}}</td>
+                    <td>{{pictures.mother_picture.id}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="picturesDetail({id:pictures.id})"

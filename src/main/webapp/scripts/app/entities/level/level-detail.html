@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span translate="ludecolApp.pictures.detail.title">Pictures</span> {{pictures.id}}</h2>
+    <h2><span translate="ludecolApp.level.detail.title">Level</span> {{level.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -12,42 +12,42 @@
             <tbody>
                 <tr>
                     <td>
-                        <span translate="ludecolApp.pictures.url_picture">Url_picture</span>
+                        <span translate="ludecolApp.level.id">Id</span>
                     </td>
                     <td>
-                        <input type="text" class="input-sm form-control" value="{{pictures.url_picture}}" readonly>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span translate="ludecolApp.pictures.height">Height</span>
-                    </td>
-                    <td>
-                        <input type="text" class="input-sm form-control" value="{{pictures.height}}" readonly>
+                        <input type="text" class="input-sm form-control" value="{{level.id}}" readonly>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span translate="ludecolApp.pictures.width">Width</span>
+                        <span translate="ludecolApp.level.difficulty">Difficulty</span>
                     </td>
                     <td>
-                        <input type="text" class="input-sm form-control" value="{{pictures.width}}" readonly>
+                        <input type="text" class="input-sm form-control" value="{{level.difficulty}}" readonly>
+                    </td>
+                </tr>               
+                <tr>
+                    <td>
+                        <span translate="ludecolApp.level.question">Question</span>
+                    </td>
+                    <td>
+                        <input type="text" class="input-sm form-control" value="{{level.question}}" readonly>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span translate="ludecolApp.pictures.matrix_position">Matrix_position</span>
+                        <span translate="ludecolApp.level.species_list">Species_list</span>
                     </td>
                     <td>
-                        <input type="text" class="input-sm form-control" value="{{pictures.matrix_position}}" readonly>
+                        <input type="text" class="input-sm form-control" value="{{level.species_list}}" readonly>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <span translate="ludecolApp.pictures.mother_picture">Mother_picture</span>
+                        <span translate="ludecolApp.level.picture">picture</span>
                     </td>
                     <td>
-                        <input type="text" class="input-sm form-control" value="{{pictures.mother_picture.id}}" readonly>
+                        <input type="text" class="input-sm form-control" value="{{level.picture.id}}" readonly>
                     </td>
                 </tr>
             </tbody>
@@ -55,7 +55,7 @@
     </div>
 
     <button type="submit"
-            ui-sref="pictures"
+            ui-sref="level"
             class="btn btn-info">
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
     </button>

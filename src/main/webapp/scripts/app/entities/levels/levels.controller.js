@@ -39,6 +39,6 @@ angular.module('ludecolApp')
         };
 
         $scope.clear = function () {
-            $scope.levels = {id_level: null, question: null, species_list: null, id: null};
+            $scope.levels = {id: null, difficulty: null, question: null, species_list: null};
         };
     });

@@ -24,6 +24,16 @@
                             <input type="text" class="form-control" name="id"
                                    ng-model="userSpecies.id" readonly>
                         </div>
+                        <div class="form-group">
+                            <label>Species</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userSpecies.species.id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>User</label>
+                            <input type="text" class="form-control"
+                                   ng-model="userSpecies.user.id" readonly>
+                        </div>
 
 
 
@@ -71,12 +81,15 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th></th>
+                    <th translate="ludecolApp.userSpecies.species">Species</th>
+                    <th translate="ludecolApp.userSpecies.user">User</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="userSpecies in userSpeciess">
                     <td><a ui-sref="userSpeciesDetails({id:userSpecies.id})">{{userSpecies.id}}</a></td>
+                    <td>{{userSpecies.species.id}}</td>
+                    <td>{{userSpecies.user.id}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="userSpeciesDetail({id:userSpecies.id})"

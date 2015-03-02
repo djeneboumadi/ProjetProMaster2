@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Spring Data JPA repository for the UserStars entity.
  */
 public interface UserStarsRepository extends JpaRepository<UserStars,Long>{
-	UserStars findOneByLevel_idUser_id(long id_level, long id_user);
+	//UserStars findOneByLevel_idUser_id(long id_level, long id_user);
 }

@@ -20,15 +20,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" class="form-control" name="id"
-                                   ng-model="levels.id" readonly>
-                        </div>
-
-                        <div class="form-group">
-                            <label translate="ludecolApp.levels.id_level">Id_level</label>
-                            <input type="number" class="form-control"
-                                   ng-model="levels.id_level">
+                            <label translate="ludecolApp.levels.difficulty">Difficulty</label>
+                            <input type="text" class="form-control"
+                                   ng-model="levels.difficulty">
                         </div>
                         <div class="form-group">
                             <label translate="ludecolApp.levels.question">Question</label>
@@ -39,6 +33,11 @@
                             <label translate="ludecolApp.levels.species_list">Species_list</label>
                             <input type="text" class="form-control"
                                    ng-model="levels.species_list">
+                        </div>
+                        <div class="form-group">
+                            <label translate="ludecolApp.levels.picture">Picture</label>
+                            <input type="number" class="form-control"
+                                   ng-model="levels.picture.id">
                         </div>
 
 
@@ -86,18 +85,20 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th translate="ludecolApp.levels.id_level">Id_level</th>
+                    <th translate="ludecolApp.levels.difficulty">Difficulty</th>
                     <th translate="ludecolApp.levels.question">Question</th>
                     <th translate="ludecolApp.levels.species_list">Species_list</th>
+                    <th translate="ludecolApp.levels.picture">Picture</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="levels in levelss">
                     <td><a ui-sref="levelsDetails({id:levels.id})">{{levels.id}}</a></td>
-                    <td>{{levels.id_level}}</td>
+                    <td>{{levels.difficulty}}</td>
                     <td>{{levels.question}}</td>
                     <td>{{levels.species_list}}</td>
+                    <td>{{levels.picture.id}}</td>
                     <td>
                         <button type="submit"
                                 ui-sref="levelsDetail({id:levels.id})"
