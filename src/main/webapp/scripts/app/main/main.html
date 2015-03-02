@@ -5,32 +5,26 @@
             <h1>Welcome on Ludecol App </h1>
           
         	<!--<img src="/im/toto.jpg" annotorious/>-->
-		<div id="imageZoomable" style="display:none">
-		<button ng-click="getAnnotations(this)">Serialize</button>
-		<a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
-		<div id="openseadragon"/>
-        </div>
-		<textarea style="margin: 0px; width: 621px; height: 96px; display:none" ng-bind="message"></textarea> 
+		
             <div ng-switch="isAuthenticated()">
-                <div class="alert alert-success" ng-switch-when="true"
+            	<div class="alert alert-success" ng-switch-when="true"
                      translate="main.logged.message" translate-values="{username: '{{account.login}}'}">
                     You are logged in as user "Admin".
                 </div>
+	            <div id="imageZoomable" style="display:none">
+					<button ng-click="getAnnotations(this)">Serialize</button>
+					<a id="map-annotate-button" onclick="annotate(); return false;" href="#">ADD ANNOTATION</a>
+					<div id="openseadragon"/>
+		        </div>
                 <div id="gallery">
-                <table  align="center"  cellpadding="10">
-
-                <tr ng-repeat="level in (levelss.length/2 | array)">
-                
+	                <table  align="center"  cellpadding="10">
+		                <tr ng-repeat="level in (levelss.length/2 | array)">
 							<td ng-repeat="level in levelss.slice(2*$index, 2*$index + 2)" style="padding-right:10px" >
-		                        <a ng-click="launchLevel(level)"><img ng-src="{{level.picture.url_picture}}" width="310" height="227" /></a>
-		                        <img ng-src="{{getNbStars(level)}}" align="center"/>
-		                     
-	                   		</td>
-								
-				</tr>
-				
-	               
-        		</table>
+				            	<a ng-click="launchLevel(level)"><img ng-src="{{level.picture.url_picture}}" width="310" height="227" /></a>
+				                <img ng-src="{{getNbStars(level)}}" align="center"/>     
+			                </td>			
+						</tr>  
+	        		</table>
         		</div>
 
                 <div class="alert alert-warning" ng-switch-when="false" translate="global.messages.info.authenticated">
