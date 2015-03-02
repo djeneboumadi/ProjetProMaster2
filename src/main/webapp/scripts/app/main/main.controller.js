@@ -176,37 +176,120 @@ angular.module('ludecolApp')
             return "/assets/images/"+right+"etoiles.png";
         };
 
-        $scope.getAnnotations = function(el) {
-            var message = "";
-            var annots = [];
-            console.log($scope.foo);
-            $scope.myannotations.forEach(function(entry) {
-                var etu = entry.shapes[0].geometry;
-                var x = etu.x + etu.width/2;
-                var y = etu.y + etu.height/2;
-                var select = document.getElementById("species");
-                var index = select.options[select.selectedIndex].value;
-                //$scope.loadTagsPicture(id_de_la_photo); récupère tout les tags corespondant a une photo dans le tableau : $scope.tags_picture
-                var anno = {};
-                anno.x= x;
-                anno.y= y;
-                anno.user=$scope.account.login;
-                anno.species=$scope.speciess[index];
-                anno.text= entry.text;
-                annots.push(anno);
-                //message += "text : " + entry.text + "	|	posx :" + x + "	|	posy :" +  y + " \r ";
-            });
-            $scope.message = message;
-            $http.post('/api/tags/push', annots).
-                success(function(data, status, headers, config) {
-                    console.log("ok");
-                }).
-                error(function(data, status, headers, config) {
-                    console.log(data);
+      //récupération des annotations (tags) 
+    	$scope.getAnnotations = function(el) {
+    		var all = $scope.myannotations;
+    		var message = "";
+    		var annots = [];
+    		var star = new Object();
+    		console.log($scope.foo);
+    		all.forEach(function(entry) {
+    			var etu = entry.shapes[0].geometry;
+    			var x = etu.x + etu.width/2;
+    			var y = etu.y + etu.height/2;
+    			var annot = new Object();
+    			var select = document.getElementById("species");
+    			var index = select.options[select.selectedIndex].value;		
 
-                });
-            $scope.launchLevel();
-        };
+    			annot.x= x;
+    			annot.y= y;
+    			annot.user=$scope.account.login;
+    			annot.species=$scope.speciess[index];
+    			annot.text= entry.text;
+    			annot.picture=$scope.myPicture;
+
+    			//annots.push(annot); fonction utilisé lors de la participation a jeu réel. Ou l'on a besoin d'enregistrer 
+    			//les tags en base
+
+    			//message += "text : " + entry.text + "	|	posx :" + x + "	|	posy :" +  y + " \r ";
+    		}
+    		);
+
+    		console.log($scope.myPicture.id);
+    		$scope.loadTagsPicture($scope.myPicture.id);
+
+    		// test avec de fausse annotations faite par l'utilisateur
+    		var annot0 = new Object();
+    		annot0.x= 5;
+    		annot0.y= 5;
+    		annot0.species=$scope.speciess[0]
+    		var annot1 = new Object();
+    		annot1.x= 10;
+    		annot1.y= 30;
+    		annot1.species=$scope.speciess[1]
+    		var annot2 = new Object();
+    		annot2.x= 80;
+    		annot2.y= 25;
+    		annot2.species=$scope.speciess[2]
+
+    		annots[0]=annot0;
+    		annots[1]=annot1;
+    		annots[2]=annot2;
+
+    		// comparaison des annotations fait par l'utilisateur et les tags en base
+    		var result=0;
+    		var length=$scope.tags_picture.length;
+    		console.log($scope.tags_picture);
+    		for( i=0; i<length; i++){
+    			console.log("debut for");
+    			for ( j=0; j<annots.length; j++){
+    				if( ($scope.tags_picture[i].pos_x - 5) <= annots[j].x && annots[j].x <= ($scope.tags_picture[i].pos_x+5) ){
+    					if( ($scope.tags_picture[i].pos_y-5) <= annots[j].y && annots[j].y <= ($scope.tags_picture[i].pos_y+5) ){
+    						if($scope.speciess[i].id==annots[j].species.id){
+    							result+=1;
+    							break;
+    						}					
+    					}					
+    				}					
+    			}
+    		}
+
+    		//notation du niveau
+    		
+    		var res = result/length*100;
+    		console.log("notation du niveau");
+    		if ( res == 100){
+    			star.nbStar=5;
+    		}else if(res>80){
+    			star.nbStar=4;
+    		}else if(res>60){
+    			star.nbStar=3;
+    		}else if(res>40){
+    			stars.nbStar=2;	
+    		}else if(res>20){
+    			star.nbStar=1;	
+    		}else{
+    			star.nbStar=0;	
+    		}
+    		star.level = $scope.myLevel
+    		star.user=$scope.account.login;
+    		// utilisation de la fonction push pour envoyer coté serveur
+    		console.log("utilisation de la fonction push");
+    		console.log("nbstar :" + star.nbStar)
+
+    		/*$scope.message = message;
+    		$http.post('/api/tags/push', annots).
+    		success(function(data, status, headers, config) {
+    			console.log("ok");
+    		}).
+    		error(function(data, status, headers, config) {
+    			console.log(data);
+
+    		});*/
+    		
+    		$scope.message = message;
+    		$http.post('/api/userStarss/push', star).
+    		success(function(data, status, headers, config) {
+    			console.log("ok");
+    		}).
+    		error(function(data, status, headers, config) {
+    			console.log(data);
+
+    		});
+    		
+    		var nothing = null;
+    		$scope.launchLevel(nothing)
+    	};
 
         $scope.annotate = function () {
             var button = document.getElementById('map-annotate-button');
